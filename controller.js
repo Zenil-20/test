@@ -1,8 +1,8 @@
-const model = require("./model");
+const Book = require("./model");
 
 exports.getbooks = async(req,res)=>{
   try{
-      const books=await model.find();
+      const books=await Book.find();
       return res.status(200).json({
         success: true,
         data: books
@@ -31,7 +31,7 @@ exports.createbooks = async(req,res)=>{
         });
       }
 
-      const newbooks = await model.create({name});
+      const newbooks = await Book.create({name,description});
       return res.status(200).json({
         success: true,
         data: newbooks
